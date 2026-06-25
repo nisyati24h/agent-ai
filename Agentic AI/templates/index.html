@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Healthy Food Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+
+
+    <div class="header">
+    <h1>🥗 Smart Healthy Food Agent</h1>
+
+    <p>
+        AI Nutrition Planner • Personalized Diet • Smart Budgeting
+    </p>
+
+    <p>
+        Rekomendasi makanan sehat berdasarkan target kalori,
+        budget, aktivitas, dan tujuan diet.
+    </p>
+</div>
+
+    <form method="POST" class="food-form">
+
+    <label>🔥 Target Kalori Harian</label>
+    <input
+        type="number"
+        name="calories"
+        placeholder="Contoh: 1800"
+        required
+    >
+
+    <label>💰 Budget Harian</label>
+    <input
+        type="number"
+        name="budget"
+        placeholder="Contoh: 60000"
+        required
+    >
+
+    <label>🎯 Tujuan Diet</label>
+    <select name="goal" required>
+        <option value="">Pilih Tujuan Diet</option>
+        <option value="diet">Menurunkan Berat Badan</option>
+        <option value="maintain">Menjaga Berat Badan</option>
+        <option value="bulking">Menambah Massa Otot</option>
+    </select>
+
+    <label>🏃 Aktivitas Harian</label>
+    <select name="activity" required>
+        <option value="">Pilih Aktivitas Harian</option>
+        <option value="Ringan">Ringan</option>
+        <option value="Sedang">Sedang</option>
+        <option value="Berat">Berat</option>
+    </select>
+
+    <button type="submit">
+        🚀 Generate Smart Meal Plan
+    </button>
+
+</form>
+
+    </form>
+
+    {% if result %}
+
+    <div class="card">
+
+        <h2>🧠 Analisis AI</h2>
+
+        <p>
+            {{ result.analysis }}
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>🍽️ Meal Plan Hari Ini</h2>
+
+        <div class="meal">
+
+            <div class="meal-item">
+                <h3>🌅 Sarapan</h3>
+                <p>{{ result.meal_plan[0].name }}</p>
+            </div>
+
+            <div class="meal-item">
+                <h3>☀️ Makan Siang</h3>
+                <p>{{ result.meal_plan[1].name }}</p>
+            </div>
+
+            <div class="meal-item">
+                <h3>🌙 Makan Malam</h3>
+                <p>{{ result.meal_plan[2].name }}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📊 Ringkasan Nutrisi</h2>
+
+        <p>
+            Total Kalori :
+            <strong>{{ result.total_calories }} kcal</strong>
+        </p>
+
+        <p>
+            Total Biaya :
+            <strong>Rp {{ result.total_price }}</strong>
+        </p>
+
+        
+    <div class="card">
+
+        <h2>💡 Alasan Rekomendasi</h2>
+
+        <ul>
+            <li>Sesuai tujuan diet yang dipilih.</li>
+            <li>Menyesuaikan target kalori harian.</li>
+            <li>Mengoptimalkan pilihan makanan sehat.</li>
+            <li>Membantu pengguna mengatur pola makan.</li>
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+    <div class="history-link">
+        <a href="/history">
+            📋 Lihat Riwayat Rekomendasi
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

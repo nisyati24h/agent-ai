@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Nasi Ayam Panggang",
+        "calories": 500,
+        "price": 25000
+    },
+    {
+        "date": "25-06-2026 14:05",
+        "goal": "diet",
+        "calories": 2500,
+        "budget": 15000,
+        "total_calories": 900,
+        "total_price": 55000
+    },
+    {
+        "date": "25-06-2026 14:07",
+        "goal": "diet",
+        "calories": 7000,
+        "budget": 20000,
+        "total_calories": 900,
+        "total_price": 55000
+    },
+    {
+        "date": "25-06-2026 21:53",
+        "goal": "maintain",
+        "calories": 499,
+        "budget": 20000,
+        "total_calories": 1350,
+        "total_price": 68000
+    },
+    {
+        "date": "25-06-2026 21:54",
+        "goal": "diet",
+        "calories": 3000,
+        "budget": 10000,
+        "total_calories": 900,
+        "total_price": 55000
+    },
+    {
+        "date": "25-06-2026 21:57",
+        "goal": "diet",
+        "calories": 10000,
+        "budget": 99995,
+        "total_calories": 900,
+        "total_price": 55000
+    }
+]

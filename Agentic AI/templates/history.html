@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Rekomendasi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📋 Riwayat Rekomendasi</h1>
+        <p>Daftar rekomendasi makanan yang pernah dibuat AI.</p>
+    </div>
+
+    {% if history %}
+
+        {% for item in history %}
+
+        <div class="card">
+
+            <h3>{{ item.date }}</h3>
+
+            <p>
+                🎯 Tujuan:
+                <strong>{{ item.goal }}</strong>
+            </p>
+
+            <p>
+                🔥 Target Kalori:
+                {{ item.calories }} kcal
+            </p>
+
+            <p>
+                🍽️ Total Kalori Menu:
+                {{ item.total_calories }} kcal
+            </p>
+
+            <p>
+                💰 Budget:
+                Rp {{ item.budget }}
+            </p>
+
+            <p>
+                💵 Total Biaya:
+                Rp {{ item.total_price }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="card">
+            <p>Belum ada riwayat rekomendasi.</p>
+        </div>
+
+    {% endif %}
+
+    <div class="history-link">
+        <a href="/">
+            ⬅️ Kembali ke Beranda
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
+
